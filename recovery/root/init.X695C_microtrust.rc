@@ -1,5 +1,5 @@
 # For MTK DRM integration:
-service teei_daemon /system/bin/teei_daemon \
+service teei_daemon /vendor/bin/teei_daemon \
     -r 020b0000000000000000000000000000 \
     -r 020f0000000000000000000000000000 \
     -r 06090000000000000000000000000000 \
@@ -23,7 +23,7 @@ service teei_daemon /system/bin/teei_daemon \
     -t 09010000000000000000000000000000
 
     user root
-    group root
+    group root system drmrpc
     disabled
     seclabel u:r:recovery:s0
 
@@ -230,9 +230,11 @@ on fs
     chown system system /dev/emmcrpmb0
     chown system system /dev/utr_tui
     chmod 0660 /dev/utr_tui
-    write /proc/bootprof "start teei_daemon (on fs)"
+
+on late_init
+    write /proc/bootprof "start teei_daemon"
     start teei_daemon
-    write /proc/bootprof "start teei_daemon end (on fs)"
+    write /proc/bootprof "start teei_daemon end"
 
 on property:vendor.crypto.fake_encrypt=1 && property:vold.post_fs_data_done=1
     setprop vendor.soter.teei.crypto.state unencrypted
