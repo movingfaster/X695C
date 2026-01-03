@@ -1,14 +1,14 @@
 #
-# Copyright (C) 2023 The Android Open Source Project
-# Copyright (C) 2023 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2026 The Android Open Source Project
+# Copyright (C) 2026 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_Infinix-X695C.mk
+    $(LOCAL_DIR)/twrp_X695C.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_Infinix-X695C-user \
-    omni_Infinix-X695C-userdebug \
-    omni_Infinix-X695C-eng
+    twrp_X695C-user \
+    twrp_X695C-userdebug \
+    twrp_X695C-eng
