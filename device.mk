@@ -56,6 +56,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     mtk_plpath_utils.recovery
 
+# Gatekeeper & Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.keymaster@4.0-service.beanpod
+
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
